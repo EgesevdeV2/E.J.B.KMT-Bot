@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+            background: linear-gradient(120deg, #1c92d2, #f2fcfe);
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,82 +16,72 @@
             color: #333;
         }
         header {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             width: 100%;
-            padding: 20px 0;
+            padding: 20px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-size: 1.8em;
         }
         .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            width: 100%;
             max-width: 1200px;
-            margin: 20px auto;
-            gap: 20px;
-            padding: 10px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
         .card {
-            background-color: white;
-            border-radius: 15px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
             width: 280px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-        }
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         .card h2 {
+            color: #333;
             font-size: 1.5em;
-            margin: 15px 0;
+            margin-bottom: 15px;
         }
         .card a {
-            display: inline-block;
-            margin: 15px 0;
-            padding: 10px 20px;
             text-decoration: none;
-            background-color: #3498db;
             color: white;
-            font-weight: bold;
-            border-radius: 25px;
+            background-color: #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
             transition: background-color 0.3s ease;
         }
         .card a:hover {
-            background-color: #2c81ba;
+            background-color: #1d73b8;
         }
     </style>
 </head>
 <body>
 
 <header>
-    Tüm Ödevler
+    <h1>Ana Sayfa - Dersler</h1>
 </header>
 
 <div class="container">
     <div class="card">
-        <img src="https://via.placeholder.com/280x180?text=Türkçe+Ödevi" alt="Türkçe Ödevi">
-        <h2>Ödev 1: Türkçe Ödevi</h2>
-        <a href="turkceodev1.html">Ödevi Görüntüle</a>
+        <h2>Türkçe Ödevleri</h2>
+        <a href="turkceodevleri.html">Görüntüle</a>
     </div>
     <div class="card">
-        <img src="https://via.placeholder.com/280x180?text=Matematik+Ödevi" alt="Matematik Ödevi">
-        <h2>Ödev 2: Matematik Ödevi</h2>
-        <a href="matematikodev2.html">Ödevi Görüntüle</a>
+        <h2>Matematik Ödevleri</h2>
+        <a href="matematikodevleri.html">Görüntüle</a>
     </div>
     <div class="card">
-        <img src="https://via.placeholder.com/280x180?text=Kimya+Ödevi" alt="Kimya Ödevi">
-        <h2>Ödev 3: Kimya Ödevi</h2>
-        <a href="kimyaodev3.html">Ödevi Görüntüle</a>
+        <h2>Kimya Ödevleri</h2>
+        <a href="kimyaodevleri.html">Görüntüle</a>
     </div>
 </div>
 
