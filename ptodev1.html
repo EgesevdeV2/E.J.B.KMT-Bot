@@ -237,10 +237,11 @@
     <a href="ptodevleri.html" class="back-button">Ana Menüye Dön</a>
 </div>
 
-<div class="nav-buttons">
-    <button class="arrow-left" onclick="prevSlide()">&#8592;</button>
-    <button class="arrow-right" onclick="nextSlide()">&#8594;</button>
-</div>
+<!-- Gezinti Butonları -->
+    <div class="nav-buttons">
+        <button id="prev">Geri</button>
+        <button id="next">İleri</button>
+    </div>
 
 <script>
     const slides = document.querySelectorAll('.slide');
@@ -256,7 +257,7 @@
     }
 
     function nextSlide() {
-        currentSlide = (currentSlide - 1) % slides.length;
+        currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
     }
 
