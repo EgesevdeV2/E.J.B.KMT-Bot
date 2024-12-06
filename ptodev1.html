@@ -105,7 +105,7 @@
             cursor: pointer;
             font-size: 18px;
             border-radius: 50%;
-            width: 60px;
+            width: 65px;
             height: 60px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             display: flex;
@@ -122,6 +122,17 @@
         button:active {
             background-color: #1d73b8;
             transform: scale(1) rotate(0deg);
+            /* Arrows */
+        .arrow-left::before {
+            content: "Geri";
+            font-size: 30px;
+        }
+        .arrow-right::before {
+            content: "İleri";
+            font-size: 30px;
+        }
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -227,9 +238,9 @@
 
 <!-- Gezinti Butonları -->
     <div class="nav-buttons">
-        <button id="prevslide">Geri</button>
-        <button id="nextslide">İleri</button>
-    </div>
+    <button class="arrow-left" onclick="prevSlide()">&#8592;</button>
+    <button class="arrow-right" onclick="nextSlide()">&#8594;</button>
+</div>
 
 <script>
     const slides = document.querySelectorAll('.slide');
