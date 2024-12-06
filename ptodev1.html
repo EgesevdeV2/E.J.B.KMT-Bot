@@ -22,7 +22,7 @@
             text-align: center;
         }
         header h1 {
-            font-size: 48px;
+            font-size: 40px;
             margin: 0;
         }
         header h2 {
@@ -74,19 +74,24 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .nav-buttons {
+            .nav-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
+            gap: 20px;
         }
         button {
-            background-color: #3498db;
+            background-color: #2980b9;
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 50px;
+            padding: 10px 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            font-size: 16px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         button:hover {
             background-color: #2980b9;
@@ -107,6 +112,10 @@
         .back-button:hover {
             background-color: #c0392b;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        button:active {
+            background-color: #1d73b8;
+            transform: scale(0.95);
         }
     </style>
 </head>
@@ -218,19 +227,32 @@
 
 <script>
     const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
     let currentIndex = 0;
 
-    document.getElementById('prev').addEventListener('click', () => {
-        slides[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-        slides[currentIndex].classList.add('active');
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            showSlide(currentIndex);
+        }
     });
 
-    document.getElementById('next').addEventListener('click', () => {
-        slides[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-        slides[currentIndex].classList.add('active');
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < slides.length - 1) {
+            currentIndex++;
+            showSlide(currentIndex);
+        }
     });
+
+    // Başlangıçta doğru slide'ı göster
+    showSlide(currentIndex);
 </script>
 
 </body>
