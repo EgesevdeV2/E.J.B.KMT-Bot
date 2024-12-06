@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Tasarım Ödev 1 - Mikroskop Araştırması</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #ff9a9e, #fecfef);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .slide {
+            display: none;
+            padding: 60px 20px;
+            text-align: center;
+            transition: all 0.5s ease-in-out;
+        }
+        .slide.active {
+            display: block;
+        header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        header h2 {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        h2 {
+            font-size: 36px;
+            color: #2980b9;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 20px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 600px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #slide-container {
+            position: relative;
+            margin-top: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        .back-button {
+            text-decoration: none;
+            color: white;
+            background-color: #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #1d73b8;
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 220px;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            border: 2px solid transparent;
+            padding: 15px 30px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+        button:hover {
+            background-color: #3498db;
+            border: 2px solid #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        button:active {
+            background-color: #2980b9;
+            box-shadow: none;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Proje Tasarım Ödev 1 - Mikroskop Araştırması</h1>
+</header>
+
+<div class="container">
+    <!-- Kapak Slaytı -->
+    <section class="slide active">
+        <h2>Proje Tasarım Ödevi 9/B</h2>
+        <p>Mikroskop Araştırması.</p>
+        <img src="https://sesanltd.com.tr/wp-content/uploads/2017/05/Medikal-Urunlerin-Kaliteli-Oldugu-Nasil-Anlasilir-1.png" alt="Mikroskop Resmi">
+    </section>
+  <!-- Giriş Slaytı -->
+    <section class="slide">
+        <h2>Mikroskop Nedir?</h2>
+        <p>Mikroskop, gözle görülemeyecek kadar küçük cisimleri incelemek için kullanılan bir optik alettir.</p>
+        <img src="data:image/jpeg;base64,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" alt="Mikroskop">
+    </section>
+
+    <!-- Tarihçe Slaytı -->
+    <section class="slide">
+        <h2>Mikroskobun Tarihçesi</h2>
+        <p>İlk mikroskoplar, 1600'lü yıllarda Zacharias Janssen ve Hans Janssen tarafından icat edilmiştir. Modern mikroskopların gelişimi ise Antonie van Leeuwenhoek'un katkıları ile gerçekleşmiştir.</p>
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUTEhMWFRUXFxoWGRcYGSAeFxkYGBcfFxgXHhoYHikgGholHRUbIjEhJSkrLi4uFyAzODMsNygtLi0BCgoKDg0OGxAQGzclICUtLTItLS0rLS0tLS8tLS0tLS0tLS8tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAwQFBgcBAgj/xABIEAACAQIDAwcJBgQFAgYDAAABAgMAEQQSIQUGMRMiMkFRYXEHF1RigZGSodEUI0JScsEzseHwFUNTorKC8RYkRJPS4nOzwv/EABkBAAMBAQEAAAAAAAAAAAAAAAABAwIEBf/EAC4RAAICAQIFAwMEAgMAAAAAAAABAhEDBCESFDFRUhVBoRMyYQVCgZEicSPw8f/aAAwDAQACEQMRAD8A2yVzcAW1vx7v+9c5/q/OiTpr4N+1LUDG0zuqs3NNgTbXqF6hdpb0ph1DYhoYgeGd7XPYBa7HuFTW0pMsMjWvZGNu2yk1kO8mEGIRjMbnK7An8JS5FrcNL1ObdqjSqi+bI35w2JbJDPCznQISysf0h1Bb2XphvB5TMLgpjBiMwkAVjlQsLMLjWsm3X3SkmDO/NBRsh61kB5radlrjxBFLz7O+2bSAxDFyIYUZ+1hdM5v+nXvNClVtvYXXZI0Lzz7P7Zf/AGm+tWDdHfWHaRlGFv8AdZM2dSvTzZbdvQNRO2dwMG8NkBjIGhBv1dYa+lVvyAQ5Jtop+XkB7mmFOGRStUOUaVmu3k9T51wM54ZPnXrGSKqMW6Nje3HwHfVC3b2c6Y2SLDqMOkeRpFzs4OY3sI82VCQp4Ega6A2FbMNl9Gf1fnRz/V+dKrwrtACPP9X50c/1fnS1FACPP9X50c/1fnS1FACPP9X50c/1fnS1FAEPJt6FSQ00SkMVIa4OZb3AvxtY8OyiDb8LkBJ4WJIUAH8R4DxPV22PZT+XAxHNmjQ5gQ11GoPG+mtUTaflLwUUhSKB5spIzoqBcym1gWIJ1Ua8OFr0nJLqaSb6Is+M3nw0Sl2xMBAIBytnbU26KXb5VJYXEmRQ8bIykXBFyCK+fdu71YnHMHlfXlLRYZL5UPAG+mdtePjw4VrXk32Zi4Y5DinDcoQwUfhNrH32GgsNKxGblLZbG5Q4Vv1Lbz/V+dQe+G8Z2fh+XaMSDMEChgurX1LObAad/VpVhqgeWqZBs8IWQM0qZVb8VgSbDibCqN7E0NMP5UJHsFwa6qX/AIx6I48Iz7+HfVp3Q3jO0MPy6xiPnshUm+q21DDiNeOnXWK7F2zyZBzKLQOmj5ePVqv+2tM8i0ynAFQyllmcsAdRexFxxF6jCbbplckUlsi9c/1fnRz/AFfnStFWIiXP9X50c/1fnStFAFX23vZ9mnSBkU5rc4E83UcRlP5qsfP9X51Rt5Nlwvi1LxqxLPcnu+zgf8z76vGC/hp+lf5CsqVtjO8/1fnRz/V+dK0VoQlz/V+dHP8AV+dLUUAN5HdRc5dPGl6SxfQbwpagBGTpr4N+1LUjJ018G/alqAI7eJZDhMQIf4phkCfrKHL87VkcO1ExGDkkkGUCORXHWCTYjXXW+njW1TdE+BrOd59xUxHKZZPszytmfmZ4pCDfNlBuj6C9jYkXsalN7mkR+xdvwFR96pYRZiF/CAqg+AGuhqnSbWWPagYamVIsjgdZzW0/K1x7hVr2d5MEhcGedpQQfu41KBhwIZsxJU8LC3jVE8pcxg2rmVVUxpEQo6IAGi+FtKSip3H8DU3FqRqe3JIlglkYG8kRJIYmxUXFrmwANusVB+QOQNNtAjgRhzxv1zdZqrbU34w+IgsrzYaUizLbOjX6Wo0I7yAakvIfisqbQy3uww6L23YzC/sFz7Kzp8cop8RTNkg0uE1cY1GYvNmKq2ZWUnKoU6ZlHsOaxGtQe5O2I2x+KjRs/KgSK9rGyG2U31/zNPbRvFJyUDk2FgBbr17j7e3r0o8k2yAkDYpwOUnJANtRGptbuBYE27hVzm9y/A6VW94sa5bJGcQhXMLxxZg3NRgblgv4yNb8H4EA0hvgbvArOyx2dmC8GZVuob1dD8qX3eUGaZSSVhYqgJ0XMBcgdpHuuQLAmi10NE1s/GCWMSKrAG9g4ysbG17d9r+2oiHerMLnCYocD/CvoTp18e0cR115xu+MCOURZJSDYlAMt/FmF/Ead9Mtj7JwWKVsquuUhcgkkUgBMgLANa511HHTUkUwLghuAbW7jxHdppXa5wFV3dPGPIZszE/eOwub2HKMoHd0eFKwLHXiSQKCzEAAXJOgAHE3pPG4tIkZ5GCqouSeA/vsqj4/aEmOa1imHBuEOjPb8T93Yvv14Rz544o2ymPG5vYW2rteTGtyUF1gvYtwMvqj8q+PS7hxh96tnQYfDu8McZxGWwJ0sAdSOyQcO/h4Se09rxYSIgW4anqFVbZ2yJ9oMZpQwwynMQTZpFHFteoL1aZrdXX5mN5dRk4v/DpfDjX/AHc8eRfYomllxEiBlFgjH81yXt2DUe6tptUDsvamBhiAjmiVBYcbakCwIOoOo0PbU5HIGUMpuCAQe46ivYjGlRySlxOz1WA7y7BEu1MXeVriW4DANzSA+XUjmgsbD+zv1YlvBIE2tiSwuM6+zmL21jK6iV08eKdDfAbprygcmGw0y/Z0KGxI1BNuql9m7BWLauFZZAC0gNo0CCwBbLzdAvMsR399S2GlUjW5OdsqjiDfiOz+nCvWz4wNoYW5OblPlybae8/Idtc2OVs7s2JK9vZmrUUUV3HlBUNtfatuWiCSKwhZxILBRobEHNe9x2VM1V97DEGJfLn5E5bjXRxe3sNYyOotjirZVt49pypiYhYHMC4JDa3WI3uFIOsQ+fdWk7PB5KPMLNkW47DlFxWdYvApfZrQheSkCB+Fmz2DHUXzG507QNK00CiHVgwooorYjtFFFACOL6DeFLUji+g3hS1ACMnTXwb9qWpGTpr4N+1LUAeJeifA1D7QxqojFwSqWLEfh7+N9Abm3V7qmJeifA1QMdtAOcbFJchJEAGYquR+SDIcpF78qTr+buqGVW0Juiw7axoigaSwYKCQDw0Ut7NF4/z4UlPu9g5jnlw0MrEDnyRqzEdV2YXtrVZg2zHJDyHOLSwEoOuwwj5jrayiyi/a47arsG/ePXnfcsq6ZChAIA0swa69Wpv1+FZ+m62MuXc0T/wls/0HC/8AsR//ABpm+y8PDMBBDDCBYvyaBMxNwmbIBewLH/qNSW7e2o8bh0njuAw1U8VYaMp8D+1Qm9+1UwylgMxZsp4izGwsbCzXDHja2uulgY74twITfDGNO0UEdvvGCjjxJynu6j1DQVoeDwyxIka9FFCjwAsKpe7uwpGx8mJcfcxyTiMlgSX5Vkva5Ogzant6+q9CjLK3QLuRW++EkaAPF0kN7dotr9fZUHhNsBcNPK8iiWdmyqGFxcaDtAsONX90DLY6gixrEN89hzRYp2SBY4yQqESHK2mnNVBYm5uDetyxqMvqJblU72JvARQyZZLAgr1g2zKTzTbgb6VLbuzj7eVj/JdwvQXNrk8RpVRwODkRAJYmS9yWzMyE20LDKDfh2+NaJuVBhY1tE6tKQGbt/vwqvGnsJotTcKqm5xs8o7C3/wC1z+9Tm3tmjE4eSEsyh1tmU2YdYII7x4dtxWA7wOuGDDVuSfkyqAAlQ5BZjprzLi3EtbtIzJ0xo03yybQjGDEGYcs7o6LfUBGDFz2Lpa/aap2yd+V5DK5tIosT1t1D2/z49tNd2N1/8QxjyPyjKqqbShspIHQJPOtl6tQt+B4VoQwGzgyO+FdXj1F4iSNSoIIHX3a2PcbQy6dZt5FIZfp7Igt190pca4xGMBWIG6RHr9Zvp/Y1KHDqq5QAFta3VaoeDeXD3VAsiknKoMZXMQuawvYXsOH0Ndi3ohKq2SYXHDkmJHNLWOUHqB93eKvCEYKokpScnbJRcBENBEgHco6uHVS4FhYcK8wyBlDC9iARcWNjrqDwr3WxHKxDehA21cUhNrst+23JpcDq/wC1bfWH71xgbXxJIJ5yEZed/lJ1DgdOB1qOb7To0zqZK7PBF3Ui6s2jcMt7/tSmzmVtpYMqb89h4fdM1rdQ4a03wSk3DRSWLEjmt1m4pTZOGI2rhWykDM+rc3/KcWF+lr42rlwp2ejqJKm79jW6KKK9A8YKg97sODh5H1uFsLEji47KnKh97pMuEmJ7B/yFYyfaxx6lT26FH+DKLD7yAj2BTWhlqzPau3ME0eFJdxNDGpj1CqGCA3IbU2t2VYP/ABDHJJBybo7SrlYFgGQmzLwXtvxFtO2wKU1YUy20UCiqCO0UUUAI4voN4UtSOL6DeFLUAIydNfBv2pakZOmvg37UtQB4l6J8DWab87rTzSF8IXQyrlmysoWS2UDMG1VrKOcL6INK0uXonwNR8jgC5/vqqGV1JGZGXQ7DnwMiSYhiI1SeJSmeYHlIgqr0c0YAjB4EaEdlUTD4p440RMtgc97akG5y2PZ/etbjtnHyZWH2afkyrAsFBNzzRZAcxHOOunDsuRmuzNmQpPnlhJCqAt1dbMo6eVtUa+pF3HCwFbjdbmGi77D2jHh0eaY8kJmaVlJGn5VyjXOEy3A469lNtvbNlxGKdlVWhEHPVtCCxByi4sspUEk9QIBtzSGWNw7SI0omDIhGTKC7FtM2aygi2Xmi1mvxNPYtvRCMKMS0juTygV42CtbnBmjVlU8AAW7hwtQ472jRL7nmcrKZcgQyyZVGrBzIxlBPC2ckDwvViFULdbeRHmniXERgIzyWZlAbPI7XW4vYDiL3GlW7Ze14p1BRwTci3A6G17HWx4+2oTTsCfB0qi7+bx4Mqsf2iF5FkVigdWYAXuSATa3H2VL7+7DlxuCfDwycmzZbm1wyg3KHUc02sayCPyTYw25ylRpdSbdh4GrzuqSKxSNL2ltrCY+AYfC4yHlTlsuYXa2uXKbEjwp1u7sI4VjPiJBnIyjXTuGvh8qpewfJPyLrNI7WQh7KOcSpzCwXUm4Ggqc3/wBu8lFklDgsOigDiFT0Xkswu5ItoSo146El7XJDa9olz2rtQJh5JoismVSRa7AkaW5lydez5Vl+5GzExU8zztHyglLRjQqxN2bQnndZutrC1ja946Dfho4uRjcKhB6KDS/ZmBN9ezqqFk2o4IMeZSBlFmyadQ5p+VTeVWajjlRtOFx2JQ5Rs+1wTdZFtoBoew3Nu/j21IYPHYhnCvhSikkF+UUgCxsbDU3IA/6h31nm5vlIkDRwYxLqSEEwJJBPNXODe9za7d/CtXU3q0ZKS2MSi49QtXaKK0ZCiiigDlZTvd5OVSSXEwY0wh2eVopAWUknM+XIQ/E8LMda1aq9vts6PEQLFIobNKiqbXysTbNY6HS/HSsyqtxxbT2MCg23iA/CMgNlsWbKeeEve9+J7RWm7q7mpiZUxUuMMohkDLFErqiuhDC5kZmIuOq19deqqZszYONOPbBxztzJWi5Tkhl5NecTmCWvlFv1WFazu/sVNn4hYY2dkmiZiXN2Msb3ZzoALiUCwAHN4calGFPoVnkk1TZa6KKKuRCqfvztVTFLErgFCMwJ5xNgwVV69GDFuGluPCc3m2iMPhZpc2QrG5U+vlOXQ8dbV86pPO8hkMrMzEkksdWPb362A6+A7Klle3D3K48bl/l2JDbuLkXFRNGFsrI68kLS6WLIX4i5B0FtCONbHu9vHhcUY0VwJlY3DAKzWVhcW0PG9h11h0e2njVVLC1tNWBa5OvNbU01bHZnuWy3N72IUHj4isQTWxZYo78Wx9TUVkPk43+naePC4jNMkhKRzWuQwBNmb8S2HXrft6tdBvV00+hzzhKDpnqiiimYEcX0G8KWpHF9BvClqAEZOmvg37UtSMnTXwb9qWoA8yDQ+FQW2djviEMZcoh4hRqR1gnN0TwI6wanzXjk+8+81iUOJ2Jor+I2awUIHjS4yrYMpJt1BJQL9w7KquP8nsk4++x7Oh6iCb+1pSOrsrRMVgI5BaRc1r2uTpcWPypqm7+GBuIlvYjr4EEEanhZiPbRwvuDRW9gbnfZUyLO0oN2XlEQkX0JVls1tfzU12zugkxPK4hPBgTa3Xd5SQde3rq2jd7DafdDS1tT1G46+0D3ClJdiwMbtGCe258O3uo4fyLhRQY/Jf8AlxcoXqVVUrbuzFrHvqZ2BuDBhX5UGWSS988jXN+3S1/berfDh1UBVuAOq5r3yfj7zScL9w4Uelqo4vdUrITh4oilrjlJJAQ976BdMvd3mrcBXaoaKpsTdnK+aaGJcpBQxySE3BBBIY20t33sKid/N1MVJN9qwUgEhUI8bdCQLfLfQ2IudbH2VoNFJpNUxptO0YBi8FixdZsA1+2NFKnv/iA/KmeH2DMx5uExNz1WjVR/1F2NvAV9FFR2VwIOyprDBFPrSMc3X8nOIeVJcVZERgwjBuSQbi7WHZwA9tq1HaWzpXKGLENFlFrBQVbQjUHx/vSpSiqKKj0JuTfUph2gYpTymOkbK4DpyFwQpcEDLcgHrI/L1U0w+MMMZf7fPMgfk2PJAnMkXKaFzbojiLi5N+6+hQOHjRamIpmz8XPJJyX2uVWPDNDHb8XAq50Ihcgn83G40sGyMHiIyTPiOVuoAXIFCm5JNxqbgj3VJlRx7K7QBB72bwLgsNJNYMyjmqeBYmwvbWwvc26gaxHaG+mPxGctiG1X7sRgBUfMtmUoL3C5rXJOta5v1u42MhaMMym4YMvEMpuD76yKbcfaEL/w0lH5gCrHxt9axO62NRr3IGPaWNBNpcUHN25kkqlnPFjY6k99Tw3px2GkRlxUkzBOb9ojsEZiMykMxYjKLE3HHTtryuwMaHDfZGFu8/zzU8l3Qx2JIvHkHaxZiPeT/MVJcfYq1Cupsu6u8K4zDxygZWYHMvYwJBt3G1x3EVN1UNxt2zhIghYtqSSeJJNzVvq6IDPa2zkxEbRuLgisQ3j3bbAu4a/Jm+W45pB6j2f34jemYDUkAd9MdsbLjxMZSQAg9fZSlFSW5uE3HofLKYblXk1a4PUerS5NzrxpM7DkGpBNbPtTyaCGxwYBc3zX7D1/L5V3ZvkyZ7HEym3HKDpWOBl/r7KlX8bmTfZ35qidyBayr/8AU661uvkihMez1jZGQh3POFiczZr/ADqW2TuhhMP0IhftIqdRABYCwrUIcJLLleT7t/8AZ7ooorZIRxfQbwpakcX0G8KWoARk6a+DftS1IydNfBv2pW9AHaK5ei9AHaK5ei9AHaK5ei9AHaK5euFwCAevQe6/7UAeqKK4zWFzwFAHaKYYfbEEjMscqOy9IKbkW7hSmy9ox4iNZYiSjXsSpUmxsdGAPEUk0wod0UV5kawJ7AT7qYHqio8bS9X5/wBKZ7a3ljwsRmlVsoIHNBY3PDQClaHTJyiqtu3v1h8czLCsgZRch0ZRa9tGtlPHhep8Yvu+f9KLQUOqKbjE93zrv2ju+dFhR5xuDWUAMWA9U2PC3Guz4XNl5zjL+ViL6g6248Pma9cv3UqDTENjghziCQWBGYHnAEltD3Fjakm2YCUJkl5huBnNjrfndo6vCocb5R/apcOI2Kw2DyAg883uoTiQthcjtGlWLD4lHAKMGB1uDesqabpMbTRHpsQBs3LTk2trIeHHs7a62xhraacE215Ts4dXfUpRWhCEuFVkyOMy2tqTc6W1PXSOI2VE986XzWvqdcug4GntI4qbIt7XoAaf4HBmLcnqdSczdt+3tJ99K4TZkURzItjbLxJ049ZpP/EvV+f9K8zbVCqzsuigsdSTYC50AueHAUASNFVfd/faLGNIIUbmWN2NswN9RpwFvmKmv8Q9X5/0pJp9BtUP6KYf4j6vz/pXf8Q9X5/0piHGL6DeFLVHS4zMCMtrjt/pUjQAjJ018G/alV4UlJ018G/alV4UAdooooASxGIVBmc2HC5qCxu+mDinEDzAMbXvewzC4ubW/wC9WKsr3rnttvDsLtksTELksVjJWy8Dq62PaO6sydGopMv0u8+CW2bFQC/bIv1qWFUXbG18UZEkOyOWWNc6MxUyoxOpTmmxtbQWbTsqf3c23LiQ3K4SXD2AP3nA36hwPyoUkJqibpCfpR/qP/BqXpCfpR/qP/Bq0IXqN2ptZYdGjmbTikbEfEBYe+pKvEwbKcpAbqJFx7RcX99JgYfhcVg8HipJEwMMcDkB/tEzu7nnHRSzqDcg6rfjrrpb/JtvlHiGXBRxZckcj5weaQHA0AW34+3+jLytbJx02ALSfZmSA8s+UPnsqkEre4AsxuOzr01beRXHpImHRWBeODEo4vqP/MRsh9qsNe0Hsqai76m21RrVJ4joN+k/ypSk8R0W8D/KqmCGUVUfKybbNk73T5Nf9quAFV/yh4YPgJbgHLlbXq5wBPuY1KXQrHdorvkWj+4Y+qB39NjWmAVRvJThFXDMwtxC38BmNva1XoCs4vtseTaVHoCvQFcAr1VSYWp0vCm1GPw3KxPGGKZ0K5hxW4tcd4piZVN9ti4OR1kaRsPijcJNGDqQLhZB0WHUM1j1Ais+TbcwjWRIx9tVwLrwOWxyN6zBgPBgRe1S8Ow5HxH2QpJkRmYm+YKI+iQpOpNgQOrNVj2ZsYJiIEYGzR53QqqjOMx4AXsMosL69dcLbm7r3LqoqrLrgZ+UjRypQsoJVhZlJGoI7RS9AqK2vtFk5iBw/NObkmdSLm68zW9h7Liu85yVprtHoe0VCYPb0nSkVimUm0eHmzd3SHD61NbQb7u/ePGgCMtXUNFNdo45IInmkvkjUs1hc2HdQBl+Hxo2fi+bbIsxUspGXki9mU2JvZSNLixQcSK101iG8jM800hheKKZw6BgQblQrg34FulbvNahuJtP7Rg48xu8f3T+KcD7Vsa5NPJcTimXyrZMn8tGWlAtdtXWQEgKmqiSND4VLUDEZOmvg37UqvCkpOmvg37UqvCgR2iiigBHFylEdwpYqpYKOLEC+Ud54VjxxU2J21hmKiGZkVypswUBb8AQTzVPZ22rYcVKVUsqFyPwggE69rED51jG+2OeDaSzxxfealULW5+RCGdkbnKCwOW9rCx41OfVFcadOkbYK7WK7L8p2NimtjVUrY3VY7MCej16j29daDuzv5g8aVjSQLOVuYmuDfrCswAfhfTW1bTsm1RaaQn6Uf6j/wAGpekMR0o/1H/g1MQvUVvPjpIcM7xAGUlI47i6iSV1iQsB+EM4J7hVV2z5ToopniSJmyMULk6XGhsvEi/f1VFz76HEqVMi5W0KgZf56n31Ceoium5eOCT/AAON/MNh8BgWzT/+cl5izzOS7sSDISDe0NrgoFygEC1ULyJhYdpIkMxl5SOQSgRkRooGbMHY3JzKo6I4033xwJkRrgi5H3zuZZGt0UzSvmVeOgNqlNy8+HiXkwsYy6yKQrub35xXq8eyovVR6r+ii00uj/s3yk5+i3gf5Vlq7/yRacqshH4SoP8AuFv51Pbnb9fb3kheExsEZwwN1YCwI1Gh5w7eurQ1EJ7Ep4JxVk+BVX3127hvseJj5VWe3J5FILBybAWv1Ea+Hsqax+AkkOmIeNbWyoFvftzEX9ndWXyZIZcSpSOdS1uWdDJcsuUnNfU3cjW+otSnKthwj7lx3O2vBBhFQCRnzZjHHG8jjN0SVQEgWHE2GhqybW25FhYOXnJQG1kI+8ZiLhAt9W7urUmwBrOtm7UOHeKXEQxlcOsiRNDdWkeVQAuRwGOgN2IsNTc6Xou+W802KlZpGBboqF6ESHiqjtvxbibewGN/4qK3NOKbcpbIt0PlmmE7ZoIjFfRQSHA/Xcgn/pq+7B8oWBxWnK8i+nMmsup7GvlPvv3V8ykdtekxBXgarTRLii+qPsQHr6qZbx7UbDxBkUMzMEAJsNRe/Du4dtqwzyWbQxoxESxvJyTOA0V7qU/FzTouhJuLeNbxtnA8rHYXupzCxsTpa1zoLg1mUm4vh6jcOFq+hnuH2xPg3llxB5WYEkpEBd0bKQVXtsdeq4I0pfEb9xsBKmZSF4SRoJRc2sOdfLe4It1HWoiWPEvKQ0JMpa0QzDoq5WxZSbA5G4X0I8K5ujuhLNM2JQwqIsQ0bRFSEZUYuVsL5h95lBPUo00tXFjUpWvyUlS3LburvuZrCdGQMy8m5sMytYKbDta9TG0d3+VmMoEVzlF2DliALWOVgKru7GCEeIkeO1/tZXUnSNg91XjYDKpA7q0IV2YW2tyM6vYqcu6jnLZ4wAFzC0mrAC+U8pcAm5sb8ancREVhVTa4CjThoLaX1tT+m20Oh7asYIlVNQO/O2FwuEkJ6cgMcY7WYcdepRqfC3XVitWe76Ism1cFFOLw2XQ9Es7kWPiVQUVewFU/xNZ7IqPnclnLtdW5pFhqbLd7kacdKndi7WOBxEqxoJElhEipyijK6i4zHq0LX69BpV7wG62EhcusSkk3GYAhO5ARzR3VSN7Psy4yKWJkmiaQHERAZlFiNQeAvqbA8Qb6E1xR030pcUXt2Oh5eJUzQN3MZJNAskqgMxNgoIGW9gdf7tUras+2r5QSoy4aJLAWBYkgW4AKtgPfV+2eWaONntmKKWtwuQCa7EyDPTjQ+FSdMJV5p8Kf0wEZOmvg37UqvCkpOmvg37UqvCgRg7eUXHvI6cuFAZgLKo0Daa5eyvT7yYxtGxMnsYj+Vqp+0dnyxYmSJxlkV20PtN/AjXwNeW2oerq6+2uXLjk3sz1NLqMUI1NfBaJJ5ZOk7Nf8zn+tedobOk5GAplDhnJObSzWFrZb8AOvr91dG136iPd9TXmbbczAKZDYXtYAcfDwqKwZL9jpyazBJJb/AMUPdq4fFyW5ScvoBZmI4cB3+2o/D7MZCGLAWN+bx01vfS3jSRxzHizHxJ+teGmP5R/fjXQo5Eqv4OKU9O5cST/s0/dbypNARFjM0kfASjWRf1D8Y/3eNatFiklEMkbBkc5lYcCCjEGvldmJr6S3NW2AwH/4kPviJq0bSo5MrTdpGRbwyquJxAdeEsnOuB+M9pBv3VFGGM85TmX1TZh4jgfdUzvRJbGYoMpI5aTh2ZyahZ5YyAMp07gK8J7SaXc9mO8VfYMShZCFfOOw6a9Xdf3V52fhHK2Zgq9g1PvNNYIZLkrYDrBHHv46Hw91KqLcSTW5NpUmJK92h6sUMZ/MR1nU+4VcPJlic+Mk5tgMPJbt6SdVUZSPCrl5LpgMTOR+HDOf9yn9qNPH/li3uYzusTSL7tTb2HwwvNKqnjl4t8I19p0rLNn7yHDxu+G/iFmuxAylWJsQASOrhw09tVnbo5WaZGF7TORqeOc269fGk4MNiAQIDGWyAGNwbg3OgP5teF69KaUmr9jzkuGxxjd6cWikzFSkhILZBpccMp07TpaoY4NZBmiYMBxA4+0cRXnamKxCsOWvGRwV0vHe+pDre50+XGmEGBkke8QKsdbjo6nWzr48LcB11RRpWtjHFezVik8VukPd2VI7t7vviZVCqWubKo4k/wB693E1O7E3abEMkDyDO56WXQGxOoB1rZ9z91Y8DHa4eUizPawt+VR1Dt6z7qfE5LYfAsbt/wBCu6G7KYKO2hlYc5hwHqL6o+Z17LWgsAtzwtr4U0qsb34popFLTlUbKAubKobgAeo3Pb2gU2+CNpGHcnuQe0cUftYXDEZwzKMuWyspcKOcco5uU+BpfcPHyrFMsEbzM07uWDRrGrva985zW0vzb3HCqquWbFLFEz5ndxITfMJCzgnuGXKdNNeqvW5+7gtOJXYGJ8txpoo7O3XjXDCSi2/yWcbRdd2cE0/2nLJybrMHBAuM1mGo0JHO6iKuezYXSJFkfO6ixbtt1+Nuuss3Z2xJhZFCOjo4jZ1Jucp0Gv59faRWuCuvTtOJHIqZ2mu0eh7adUz2rfk9O0VcmMYjeq9v7uqcZCGi/jxXMetg3WUv1E2BB6iO+9P1xBVtafx7TUDU0rHRlMO/GPyGKRACAUaRlIZTa2pNgG8RUJLhk5Ih0la9hZYyV1vlubWIOU+NjVo8oG0Ivt8LNl5NhGZQRqQj3PX1gDq6qnNt78QJKs2GkjaVkMBUtpzmDRSN15UbNfukNJqT67D2RW91NzsTi2VniOGgWxDSLZnseCx3BGg4tpwsD1bOABWSHeCfJhHjxzTYl5byRhly5XBKo0Y5qAEKvD8R1rWbUITPOI6J8Kd0ynHNPhT2tAIydNfBv2pVeFV7fLeRMAkcsiM4Zillte5W99f01UT5WMN/oYj4x9apHFOStIvj0uXJHihG0PPKzul9oi+1xLeaJecv54xr1a5l4+F+6sFZ7cTW3edfDf6OI+MfWo3Cb8bMiJMezyhJuSojBJ7bjWtcvk7FOS1HiZdg8DLL/Chkk/QjN/xBqcwe4u0ZejhJAO1wE/5kVow8q+G/0MR8Y+td86+G/wBHEfGPrS5fL2DktR4FTw/kp2iwAIhjA/NJ29fNDf2Kl8N5GJj/ABMXGv6ULfzK1K+dfDf6OI+MfWjzr4b/AEcR8Y+tHLZOw+S1PiGH8i+G/wAzFTt+gIo/3Kx+daBhcGsCQQpfLGAi31NljIFz22FZ/wCdfDf6OI+MfWhfKxhgQeQnNuF3B6rdvfRy+TsLkdR4k1vHuAs8jzQymORzmZWGZCe7rX5+FUTa+7OKw2ssRKj8ac5PeNQPECrP54MP6PN71+tHnfw/o8vvX61yZv0r6m6VM6sUdZDZxtGeyOLaVHObWsOrrq4bc3p2XibscHNG/wCeIqp9o6Le0V3Ye9ey8LYpg5ncf5kjKzezqX2AVzR/Sc8XVbHTL6rX2O/4I3Yu5WMxViE5JD+NxbTtC9I/Id9aPu5uPFs+KaQO8krxOrM2gta9lUcBcDiSe+oseV3DD/00vvX615m8rmHZSv2eXUEcV6xbtrtxfp8ob1uceTDqp/tIjbu7Uc926En51/cdf8++qFtnZmIw5HKDQCyuOiddL9h14GrtPv5hz0YZB7V+tNpN9IGBDQuQdCDlsao9Lkf7TMdJqF+0quG2pI45NzdSNQbHh1XIvapfZWzJZ2yQoW7bdEeJOg9tcgxezFk5QwYi3+mHUJ/8gO4EVbcL5S8LEoSPCyIo4BcoHyrHJZL6FVp86W0NyZ3W3MGHdZpXzSDgq9FSRa9+LHXuHjVyFZ2PKrh/R5fev1rvnXw/o8vvX61RaXIv2kJaPUyduJotIba2JFikAkFyOBqhedjD+jy+9frS48r+H9Hm96/WtLT5Oxh6HUeIidgTYGXlVPKhblc45wB6sw6S24A6jttpULsYS42SQx2QZ2DXHXwNvdU7iPKxhXUq2GlIOnFfrUdsvf8A2fh7mLByrcljqvE8TxqL0EnK+E2tJqUq4WWnYO4iRMsjtmK8BbQVdVFqzbzwYf0eb3r9aPPBh/R5vev1qy02RdIk+R1HizSqRxIutZ354MP6PN71+teX8r2HP/p5vev1p8vk7ByOo8S8Pg1biKovlD2diUWP7GkjAk8pkPO4c0cCQL9g6uqgeVvD+jy+9frQfK3h/R5fev1o5fJ2HyOo8TKNq4XERZjiFZmYWvICGUXvcHS/YTw19zrZmysNnyYmVo2HEPw7rMvNt7a0DaflHwOITJNg5HXsJXTvBBuD3iqlNiNlEkpBi4/0vH//AECfnWvoZOwuQ1HgXbZm4OzsXFzJpLn/AE5lbh3FTWkQwZVC9QAGvHQWr58wOKwMM8c0f2sGN1exya5Te1wRobdhrQvO/h/R5vev1pcvk7ByOo8TQcQtlPhTqs82f5TocTIkCwSqZGCgkrYX6zY1oVTnCUNpIjlwzxbTVFY3+3YfaEMcaSLGUkz3YEg80rbTxqjeZ6b0mP4W+tFFahnnBUmVw6zNijwwe3+g8z03pMfwt9aPM9N6TH8LfWiit81l7lfUtR5fCDzPTekx/C31o8z03pMfwt9aKKOay9w9S1Hl8IPM9N6TH8LfWjzPTekx/C31ooo5rL3D1LUeXwg8z03pMfwt9aPM9N6TH8LfWiijmsvcPUtR5fCDzPTekx/C31o8z03pMfwt9aKKOay9w9S1Hl8IPM9N6TH8LfWjzPTekx/C31ooo5rL3D1LUeXwg8z03pMfwt9aPM9N6TH8LfWiijmsvcPUtR5fCDzPTekx/C31o8z03pMfwt9aKKOay9w9S1Hl8IPM9N6TH8LfWjzPTekx/C31ooo5rL3D1LUeXwg8z03pMfwt9aPM9N6TH8LfWiijmsvcPUtR5fCDzPTekx/C31o8z03pMfwt9aKKOay9w9S1Hl8IPM9N6TH8LfWjzPTekx/C31ooo5rL3D1LUeXwg8z03pMfwt9aPM9N6TH8LfWiijmsvcPUtR5fCDzPTekx/C31o8z03pMfwt9aKKOay9w9S1Hl8IPM9N6TH8LfWjzPTekx/C31ooo5rL3D1LUeXwg8z03pMfwt9aPM9N6TH8LfWiijmsvcPUtR5fCDzPTekx/C31o8z03pMfwt9aKKOay9w9S1Hl8IfbD8ls0GIimOIjYI4YgKbm1alXaKlPJKe8jmzajJmac3Z//Z" alt="Antonie van Leeuwenhoek">
+    </section>
+
+    <!-- Mikroskop Türleri Slaytı -->
+    <section class="slide">
+        <h2>Mikroskop Türleri</h2>
+        <p>
+            <strong>Günümüzde çeşitli amaçlar için yapılan mikroskoplar başlıca 5 temel bölüme ayrılırlar.</strong><br>
+            <strong>- Işık Mikroskopları:</strong><br>
+            <strong>- Karanlık Saha Mikroskopları</strong><br>
+            <strong>- Fluoresens Mikroskopları:</strong><br>
+            <strong>- Faz-kontrast mikroskobu:</strong><br>
+            <strong>- Stereo Mikroskopları:</strong>
+        </p>
+        <img src="https://www.agri.edu.tr/upload/merkeziarastirmaveuygulamalaboratuvaridetay262/dm550.png" alt="Elektron Mikroskobu">
+    </section>
+
+    <section class="slide">
+        <h2>1. Işık Mikroskopları</h2>
+        <p>Mercek sayısına bağlı olarak iki tür mikroskop vardır. Basit ışık mikroskobu (tek bir mercek kullandığı için büyütme oranı düşüktür) ve bileşik ışık mikroskobu (en az iki set mercek, bir objektif mercek ve bir oküler kullandığı için basit mikroskoba göre daha yüksek bir büyütmeye sahiptir).</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdaEt4syF-WsXZ_czu71Lc2bbC21HQhh65Uw&s" alt="Mikroskop Parçaları">
+    </section>
