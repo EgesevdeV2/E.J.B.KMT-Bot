@@ -101,13 +101,16 @@
             background-color: #2980b9;
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 15px 15px;
             cursor: pointer;
             font-size: 18px;
             border-radius: 50%;
             width: 60px;
             height: 60px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: all 0.3s ease;
             outline: none;
         }
@@ -253,7 +256,7 @@
     }
 
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
+        currentSlide = (currentSlide - 1) % slides.length;
         showSlide(currentSlide);
     }
 
